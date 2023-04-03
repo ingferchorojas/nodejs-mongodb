@@ -28,7 +28,9 @@ Post - http://localhost:3000/api/auth/login
 }
 ```
 Get - http://localhost:3000/api/user
-`Bearer token`
+
+
+Requiere de`Bearer token`
 
 ## Tecnologías utilizadas
 - Node.js
