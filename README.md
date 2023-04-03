@@ -12,12 +12,23 @@ Es un proyecto base para Node.js con Typescript y base de datos MongoDB
 1. Iniciar el servidor: `npm start`
 2. Hacer una petición al servidor usando una herramienta como Postman o cURL:
 
-Método: POST
-URL: http://localhost:3000/api/signup
-Body: {
-"email": "ejemplo@ejemplo.com",
-"password": "123456"
+Post - http://localhost:3000/api/signup 
+```json
+{
+   "email":"ejemplo@ejemplo.com",
+   "password":"123456"
 }
+```
+
+Post - http://0.0.0.0:3000/api/auth/login
+```json
+{
+   "email":"ejemplo@ejemplo.com",
+   "password":"123456"
+}
+```
+Get - http://0.0.0.0:3000/api/user
+`Bearer token`
 
 ## Tecnologías utilizadas
 - Node.js
