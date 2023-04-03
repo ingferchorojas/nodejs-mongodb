@@ -20,14 +20,14 @@ Post - http://localhost:3000/api/signup
 }
 ```
 
-Post - http://0.0.0.0:3000/api/auth/login
+Post - http://localhost:3000/api/auth/login
 ```json
 {
    "email":"ejemplo@ejemplo.com",
    "password":"123456"
 }
 ```
-Get - http://0.0.0.0:3000/api/user
+Get - http://localhost:3000/api/user
 `Bearer token`
 
 ## Tecnologías utilizadas
