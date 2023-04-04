@@ -13,13 +13,28 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose
-  .connect(process.env.MONGODB_URI || '', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  } as ConnectOptions)
-  .then(() => console.log('Connected to database'))
-  .catch((error) => console.log('Connection error:', error));
+let cachedDb: mongoose.Connection | null = null;
+
+const connectToDatabase = async () => {
+  if (cachedDb) {
+    return Promise.resolve(cachedDb);
+  }
+
+  try {
+    const db = await mongoose.connect(process.env.MONGODB_URI || '', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    } as ConnectOptions);
+    cachedDb = db.connection;
+    console.log('Connected to database');
+    return cachedDb;
+  } catch (error) {
+    console.log('Connection error:', error);
+    throw new Error('Error connecting to database');
+  }
+};
+
+connectToDatabase();
 
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);

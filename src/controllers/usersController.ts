@@ -66,7 +66,7 @@ export const login = async (req: Request, res: Response) => {
       return res.status(401).json({ data: {}, message: "Authentication failed", error: true });
     }
 
-    const token = jwt.sign({ email: user.email }, "secret", {
+    const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET || 'secret', {
       expiresIn: "1h",
     });
 
