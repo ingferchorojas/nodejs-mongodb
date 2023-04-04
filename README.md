@@ -8,9 +8,15 @@ Es un proyecto base para Node.js con Typescript y base de datos MongoDB
 2. Instalar dependencias: `npm install`
 3. Crear el archivo .env 
 
+```env
+MONGODB_URI=xxxx
+JWT_SECRET=xxxx
+```
+
 ## Uso
 1. Iniciar el servidor: `npm start`
 2. Hacer una petición al servidor usando una herramienta como Postman o cURL:
+  
 
 Post - http://localhost:3000/api/signup 
 ```json
